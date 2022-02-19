@@ -1,5 +1,4 @@
 package com.company;
-
 import java.util.Scanner;
 
 class Grid {
@@ -19,13 +18,11 @@ class Grid {
                 battleGrid[i][j] = '~';
             }
         }
-
         for(int i=0;i<10;i++) {
             for(int j=0;j<10;j++) {
                 fogGrid[i][j]='~';
             }
         }
-
     }
 
     public int getCountShip() {
@@ -67,8 +64,6 @@ class Grid {
         }
     }
 
-
-
     public void printFogGrid() {
         char startLetter = 'A';
         for (int i = 1; i <= fogGrid.length; i++) {
@@ -85,7 +80,6 @@ class Grid {
             }
             System.out.println();
         }
-
     }
 
     public static void input(Ship ship, Grid grid) {
@@ -108,12 +102,10 @@ class Grid {
             secondColumn = Integer.parseInt(tmp);
             grid.updateGrid(ship, firstRow, firstColumn - 1, secondRow, secondColumn - 1);
         }
-
         grid.printGrid();
     }
 
     public static void takeShot(Grid grid) {
-        //grid.printGrid();
         int firstRow=-1,firstColumn=-1;
         Scanner scanner = new Scanner(System.in);
         String shot=scanner.next();
@@ -191,7 +183,8 @@ class Grid {
                     }
                 }
                 return true;
-            } else {
+            }
+            else {
                 for (int i = 0; i <= ship.getCells(); i++) {
                     for (int j = Math.min(firstRow, secondRow); j <= Math.max(firstRow, secondRow); j++) {
                         if ((firstColumn - 1 >= 0) && battleGrid[j][firstColumn - 1] == 'O') return false;
@@ -203,7 +196,8 @@ class Grid {
                 }
                 return true;
             }
-        } else {
+        }
+        else {
             System.out.println("Error the coordinates are out of bounds of the grid! Try again: " + firstRow + " " + firstColumn + " " + secondRow + " " + secondColumn);
             return false;
         }
@@ -222,14 +216,10 @@ class Grid {
                         if (battleGrid[i][j] == 'X') {
                             fogGrid[i][j] = 'X';
                         }
-
                     }
                 }
-                //printFogGrid();
                 if(kol()!=17) System.out.println("You hit a ship!");
-                //if(kol()!=17) System.out.println("You sank a ship!");
                 if(kol()==17) System.out.println("You sank the last ship. You won. Congratulations!");
-
             }
             else {
                 battleGrid[firstRow][firstColumn] = 'M';
@@ -242,12 +232,9 @@ class Grid {
                         if (battleGrid[i][j] == 'X') {
                             fogGrid[i][j] = 'X';
                         }
-
                     }
                 }
-                //printFogGrid();
                 System.out.println("You missed!");
-
             }
     }
 }

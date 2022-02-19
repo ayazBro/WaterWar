@@ -19,8 +19,6 @@ class Main {
            if(Player.checkEnd(player1,player2)) Player.playGame(player2, player1);
        }
     }
-
-
 }
 
 

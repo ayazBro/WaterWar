@@ -30,7 +30,6 @@ public class Player {
         Scanner scanner=new Scanner(System.in);
         while (str.length()!=0) {
             System.out.println("Press Enter and pass the move to another player ");
-            //scanner.nextLine();
             str=scanner.nextLine();
         }
 
